@@ -1,0 +1,12 @@
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.springframework:spring-context:5.0.2.RELEASE'
+}
