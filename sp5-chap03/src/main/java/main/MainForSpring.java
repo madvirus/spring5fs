@@ -4,10 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-
-import config.AppCtx;
+import assembler.Assembler;
 import spring.ChangePasswordService;
 import spring.DuplicateMemberException;
 import spring.MemberNotFoundException;
@@ -15,13 +12,9 @@ import spring.MemberRegisterService;
 import spring.RegisterRequest;
 import spring.WrongIdPasswordException;
 
-public class MainForAssembler {
+public class MainForSpring {
 
-	private static ApplicationContext ctx = null;
-	
 	public static void main(String[] args) throws IOException {
-		ctx = new AnnotationConfigApplicationContext(AppCtx.class);
-		
 		BufferedReader reader = 
 				new BufferedReader(new InputStreamReader(System.in));
 		while (true) {
@@ -42,13 +35,14 @@ public class MainForAssembler {
 		}
 	}
 
+	private static Assembler assembler = new Assembler();
+
 	private static void processNewCommand(String[] arg) {
 		if (arg.length != 5) {
 			printHelp();
 			return;
 		}
-        MemberRegisterService regSvc = 
-                ctx.getBean("memberRegSvc", MemberRegisterService.class);
+		MemberRegisterService regSvc = assembler.getMemberRegisterService();
 		RegisterRequest req = new RegisterRequest();
 		req.setEmail(arg[1]);
 		req.setName(arg[2]);
@@ -72,8 +66,8 @@ public class MainForAssembler {
 			printHelp();
 			return;
 		}
-        ChangePasswordService changePwdSvc = 
-                ctx.getBean("changePwdSvc", ChangePasswordService.class);
+		ChangePasswordService changePwdSvc = 
+				assembler.getChangePasswordService();
 		try {
 			changePwdSvc.changePassword(arg[1], arg[2], arg[3]);
 			System.out.println("암호를 변경했습니다.\n");
