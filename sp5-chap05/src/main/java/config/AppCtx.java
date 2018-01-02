@@ -2,6 +2,7 @@ package config;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 import spring.ChangePasswordService;
@@ -14,6 +15,7 @@ import spring.MemberSummaryPrinter;
 import spring.VersionPrinter;
 
 @Configuration
+@ComponentScan(basePackages = {"spring"})
 public class AppCtx {
 
 	@Bean
