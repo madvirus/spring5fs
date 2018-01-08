@@ -6,6 +6,9 @@ import java.util.Map;
 
 import org.springframework.stereotype.Component;
 
+import config.ManualBean;
+
+@ManualBean
 @Component
 public class MemberDao {
 
