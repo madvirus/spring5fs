@@ -24,7 +24,7 @@ public class ExeTimeAspect {
         } finally {
             long finish = System.nanoTime();
             Signature sig = joinPoint.getSignature();
-            System.out.printf("%s.%s(%s) ½ÇÇà ½Ã°£ : %d ns\n",
+            System.out.printf("%s.%s(%s) ì‹¤í–‰ ì‹œê°„ : %d ns\n",
                     joinPoint.getTarget().getClass().getSimpleName(),
                     sig.getName(), Arrays.toString(joinPoint.getArgs()),
                     (finish - start));
