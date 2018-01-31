@@ -1,4 +1,4 @@
-package aspect;
+package aspect2;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -6,29 +6,23 @@ import java.util.Map;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Pointcut;
 
 @Aspect
-//@Order(2)
-public class CacheAspect {
+public class CacheAspect2 {
 
 	private Map<Long, Object> cache = new HashMap<>();
 
-	@Pointcut("execution(public * chap07..*(long))")
-	public void cacheTarget() {
-	}
-	
-	@Around("cacheTarget()")
+	@Around("aspect2.CommonPointcut.commonTarget()")
 	public Object execute(ProceedingJoinPoint joinPoint) throws Throwable {
 		Long num = (Long) joinPoint.getArgs()[0];
 		if (cache.containsKey(num)) {
-			System.out.printf("CacheAspect: Cache에서 구함[%d]\n", num);
+			System.out.printf("CacheAspect2: Cache에서 구함[%d]\n", num);
 			return cache.get(num);
 		}
 
 		Object result = joinPoint.proceed();
 		cache.put(num, result);
-		System.out.printf("CacheAspect: Cache에 추가[%d]\n", num);
+		System.out.printf("CacheAspect2: Cache에 추가[%d]\n", num);
 		return result;
 	}
 
