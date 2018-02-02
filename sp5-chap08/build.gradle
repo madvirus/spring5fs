@@ -10,6 +10,9 @@ repositories {
 
 dependencies {
     compileJava 'org.springframework:spring-context:5.0.2.RELEASE'
+    compileJava 'org.springframework:spring-jdbc:5.0.2.RELEASE'
+    compileJava 'org.apache.tomcat:tomcat-jdbc:8.0.49'
+    compileJava 'mysql:mysql-connector-java:5.1.45'
 }
 
 task wrapper(type: Wrapper) {
