@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class AppCtx {
+public class DbConfig {
 
 	@Bean(destroyMethod = "close")
 	public DataSource dataSource() {
