@@ -3,10 +3,15 @@ package config;
 import org.apache.tomcat.jdbc.pool.DataSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import spring.ChangePasswordService;
 import spring.MemberDao;
 
 @Configuration
+@EnableTransactionManagement
 public class AppCtx {
 
 	@Bean(destroyMethod = "close")
@@ -25,7 +30,21 @@ public class AppCtx {
 	}
 
 	@Bean
+	public PlatformTransactionManager transactionManager() {
+		DataSourceTransactionManager tm = new DataSourceTransactionManager();
+		tm.setDataSource(dataSource());
+		return tm;
+	}
+
+	@Bean
 	public MemberDao memberDao() {
 		return new MemberDao(dataSource());
+	}
+	
+	@Bean
+	public ChangePasswordService changePwdSvc() {
+		ChangePasswordService pwdSvc = new ChangePasswordService();
+		pwdSvc.setMemberDao(memberDao());
+		return pwdSvc;
 	}
 }
