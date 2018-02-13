@@ -9,8 +9,8 @@ repositories {
 }
 
 dependencies {
-    compileJava 'org.springframework:spring-context:5.0.2.RELEASE'
-    compileJava 'org.aspectj:aspectjweaver:1.8.13'
+    compile 'org.springframework:spring-context:5.0.2.RELEASE'
+    compile 'org.aspectj:aspectjweaver:1.8.13'
 }
 
 task wrapper(type: Wrapper) {

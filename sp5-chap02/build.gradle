@@ -9,7 +9,7 @@ repositories {
 }
 
 dependencies {
-    compileJava 'org.springframework:spring-context:5.0.2.RELEASE'
+    compile 'org.springframework:spring-context:5.0.2.RELEASE'
 }
 
 task wrapper(type: Wrapper) {
