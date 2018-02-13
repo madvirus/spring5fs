@@ -1,0 +1,17 @@
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+compileJava.options.encoding = "UTF-8"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compileJava 'org.springframework:spring-webmvc:5.0.2.RELEASE'
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '4.4'
+}
