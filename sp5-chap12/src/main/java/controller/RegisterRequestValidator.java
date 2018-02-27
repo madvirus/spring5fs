@@ -17,6 +17,7 @@ public class RegisterRequestValidator implements Validator {
 
 	public RegisterRequestValidator() {
 		pattern = Pattern.compile(emailRegExp);
+		System.out.println("RegisterRequestValidator#new(): " + this);
 	}
 
 	@Override
@@ -26,6 +27,7 @@ public class RegisterRequestValidator implements Validator {
 
 	@Override
 	public void validate(Object target, Errors errors) {
+		System.out.println("RegisterRequestValidator#validate(): " + this);
 		RegisterRequest regReq = (RegisterRequest) target;
 		if (regReq.getEmail() == null || regReq.getEmail().trim().isEmpty()) {
 			errors.rejectValue("email", "required");
