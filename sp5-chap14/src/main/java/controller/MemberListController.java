@@ -20,7 +20,7 @@ public class MemberListController {
 		this.memberDao = memberDao;
 	}
 
-	@RequestMapping("/member/list")
+	@RequestMapping("/members")
 	public String list(
 			@ModelAttribute("cmd") ListCommand listCommand,
 			Errors errors, Model model) {
