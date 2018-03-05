@@ -28,7 +28,7 @@
         <c:forEach var="mem" items="${members}">
         <tr>
             <td>${mem.id}</td>
-            <td><a href="<c:url value="/member/detail/${mem.id}"/>">
+            <td><a href="<c:url value="/members/${mem.id}"/>">
                 ${mem.email}</a></td>
             <td>${mem.name}</td>
             <td><tf:formatDateTime value="${mem.registerDateTime }" 
