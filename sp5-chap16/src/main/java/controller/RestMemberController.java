@@ -9,11 +9,12 @@ import org.springframework.web.bind.annotation.RestController;
 import spring.Member;
 import spring.MemberDao;
 import spring.MemberNotFoundException;
+import spring.MemberRegisterService;
 
 @RestController
 public class RestMemberController {
 	private MemberDao memberDao;
-	//private MemberRegisterService registerService;
+	private MemberRegisterService registerService;
 
 	@GetMapping("/api/members")
 	public List<Member> members() {
@@ -51,12 +52,12 @@ public class RestMemberController {
 //		}
 //	}
 //
-//	public void setRegisterService(MemberRegisterService registerService) {
-//		this.registerService = registerService;
-//	}
 
 	public void setMemberDao(MemberDao memberDao) {
 		this.memberDao = memberDao;
 	}
 
+	public void setRegisterService(MemberRegisterService registerService) {
+		this.registerService = registerService;
+	}
 }
