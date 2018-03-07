@@ -67,13 +67,13 @@ public class MvcConfig implements WebMvcConfigurer {
 
 	@Override
 	public void extendMessageConverters(List<HttpMessageConverter<?>> converters) {
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+		//DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 		ObjectMapper objectMapper = Jackson2ObjectMapperBuilder
 				.json()
-				//.featuresToDisable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
-				.serializerByType(LocalDateTime.class, new LocalDateTimeSerializer(formatter))
-				.deserializerByType(LocalDateTime.class, new LocalDateTimeDeserializer(formatter))
-				.simpleDateFormat("yyyy-MM-dd HH:mm:ss")
+				.featuresToDisable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
+				//.serializerByType(LocalDateTime.class, new LocalDateTimeSerializer(formatter))
+				//.deserializerByType(LocalDateTime.class, new LocalDateTimeDeserializer(formatter))
+				//.simpleDateFormat("yyyy-MM-dd HH:mm:ss")
 				.build();
 		converters.add(0, new MappingJackson2HttpMessageConverter(objectMapper));
 	}

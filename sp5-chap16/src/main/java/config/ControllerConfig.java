@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import controller.ApiExceptionAdvice;
 import controller.ChangePwdController;
 import controller.LoginController;
 import controller.LogoutController;
@@ -74,5 +75,10 @@ public class ControllerConfig {
 		cont.setMemberDao(memberDao);
 		cont.setRegisterService(memberRegSvc);
 		return cont;
+	}
+	
+	@Bean
+	public ApiExceptionAdvice apiExceptionAdvice() {
+		return new ApiExceptionAdvice();
 	}
 }
