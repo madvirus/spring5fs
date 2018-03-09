@@ -1,0 +1,16 @@
+package sp5.sp5chapb;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
+
+@RunWith(SpringRunner.class)
+@SpringBootTest
+public class Sp5ChapbApplicationTests {
+
+	@Test
+	public void contextLoads() {
+	}
+
+}
