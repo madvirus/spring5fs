@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+    <title th:text="#{login.title}"></title>
+</head>
+<body>
+    <form action="#" th:action="@{login}" th:object="${loginCommand}" method="post">
+    <span th:each="err : ${#fields.globalErrors()}" th:text="${err}"></span>
+    <p>
+        <label for="email" th:text="#{email}">email</label>:<br>
+        <input type="text" id="email" th:field="*{email}" />
+        <span th:each="err : ${#fields.errors('email')}" th:text="${err}"></span>
+    </p>
+    <p>
+        <label for="password" th:text="#{password}">password</label>:<br>
+        <input type="password" id="password" th:field="*{password}" />
+        <span th:each="err : ${#fields.errors('password')}" th:text="${err}"></span>
+    </p>
+    <p>
+        <label th:for="${#ids.next('rememberEmail')}" th:text="#{rememberEmail}">remember</label>:
+        <input type="checkbox" th:field="*{rememberEmail}" value="true"/> 
+    </p>
+    <input type="submit"value="로그인" th:value="#{login.btn}">
+    </form>
+</body>
+</html>
