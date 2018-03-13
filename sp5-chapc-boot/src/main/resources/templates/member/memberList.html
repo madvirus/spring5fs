@@ -29,7 +29,7 @@
                    th:href="@{/members/{memId}(memId=${mem.id})}"
                    th:text="${mem.email}">email</a></td>
             <td th:text="${mem.name}">name</td>
-            <td th:text="${#temporals.mem.registerDateTime}">dateTime</td>
+            <td th:text="${#temporals.format(mem.registerDateTime, 'yyyy-MM-dd')}">dateTime</td>
         </tr>
     </table>
 </body>
