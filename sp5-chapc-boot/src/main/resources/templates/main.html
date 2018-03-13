@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+    <title>메인</title>
+</head>
+<body>
+    <th:block th:unless="${authInfo}">
+    <p>환영합니다.</p>
+    <p>
+        <a href="" th:href="@{/register/step1}">[회원 가입하기]</a>
+        <a href="" th:href="@{/login}">[로그인]</a>
+    </p>
+    </th:block>
+    
+    <th:block th:if="${authInfo}">
+    <p><span th:text="${authInfo.name}"></span>님, 환영합니다.</p>
+    <p>
+        <a href="" th:href="@{/edit/changePassword}">[비밀번호 변경]</a>
+        <a href="" th:href="@{/logout}">[로그아웃]</a>
+    </p>
+    </th:block>
+</body>
+</html>
