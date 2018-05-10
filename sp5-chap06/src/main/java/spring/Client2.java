@@ -9,7 +9,7 @@ public class Client2 {
 	}
 
 	public void connect() {
-		System.out.println("Client2.connect() ½ÇÇà");
+		System.out.println("Client2.connect() ì‹¤í–‰");
 	}
 
 	public void send() {
@@ -17,7 +17,7 @@ public class Client2 {
 	}
 
 	public void close() {
-		System.out.println("Client2.close() ½ÇÇà");
+		System.out.println("Client2.close() ì‹¤í–‰");
 	}
 
 }
