@@ -1,0 +1,27 @@
+apply plugin: 'java'
+apply plugin: 'war'
+apply plugin: 'eclipse-wtp'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+compileJava.options.encoding = "UTF-8"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    providedCompile 'javax.servlet:javax.servlet-api:3.1.0'
+    providedRuntime 'javax.servlet.jsp:javax.servlet.jsp-api:2.3.2-b02'
+    compile 'javax.servlet:jstl:1.2'
+    compile 'org.springframework:spring-webmvc:5.0.2.RELEASE'
+    compile 'org.springframework:spring-jdbc:5.0.2.RELEASE'
+    compile 'org.apache.tomcat:tomcat-jdbc:8.0.49'
+    compile 'mysql:mysql-connector-java:5.1.45'
+    compile 'org.slf4j:slf4j-api:1.7.25'
+    compile 'ch.qos.logback:logback-classic:1.2.3'
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '4.4'
+}
