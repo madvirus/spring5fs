@@ -1,5 +1,6 @@
 apply plugin: 'java'
 apply plugin: 'war'
+apply plugin: 'eclipse-wtp'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
