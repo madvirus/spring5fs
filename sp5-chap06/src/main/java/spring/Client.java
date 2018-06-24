@@ -13,7 +13,7 @@ public class Client implements InitializingBean, DisposableBean {
 
 	@Override
 	public void afterPropertiesSet() throws Exception {
-		System.out.println("Client.afterPropertiesSet() ½ÇÇà");
+		System.out.println("Client.afterPropertiesSet() ì‹¤í–‰");
 	}
 
 	public void send() {
@@ -22,7 +22,7 @@ public class Client implements InitializingBean, DisposableBean {
 
 	@Override
 	public void destroy() throws Exception {
-		System.out.println("Client.destroy() ½ÇÇà");
+		System.out.println("Client.destroy() ì‹¤í–‰");
 	}
 
 }
